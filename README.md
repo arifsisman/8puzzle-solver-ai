@@ -12,5 +12,6 @@ First, getBoard() method from Board class is used for construct an instance of p
 
 In constructor, a Stack of solution and a Priority Queue of moves created. Initial state is inserted to PQ, in while loop, minimum number of PQ deleted. For every possible move, board is moved. If goal state is reached, solution path is pushed to the Stack and returned.
 
-In Move class, compareTo() method uses manhattan distance for calculate heuristics.
-In Runner class, main() method can run multiple instances of boards located under boards directory.
+In Move class, compareTo() method uses manhattan distance for calculate heuristics.  
+In Runner class, main() method can run multiple instances of boards located under boards directory.  
+In Board class, isSolvable() method checks is board even and counts the number of inversions using 2 for loops,then returns isEvenBoard != isEvenInversions.  
