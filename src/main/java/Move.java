@@ -1,16 +1,18 @@
 package main.java;
 
 class Move implements Comparable<Move>{
-    Board board;
     int moves;
+    Board board;
     Move parent;
 
+    //Constructor
     public Move(Board board, int moves, Move parent){
         this.board = board;
         this.moves = moves;
         this.parent = parent;
     }
 
+    //Compare moves with manhattan distance
     @Override
     public int compareTo(Move o) {
         int difference = this.board.getManhattan() + this.moves - o.board.getManhattan() - o.moves;
