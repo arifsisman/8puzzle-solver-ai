@@ -6,7 +6,7 @@ class Move implements Comparable<Move>{
     Move parent;
 
     //Constructor
-    public Move(Board board, int moves, Move parent){
+    Move(Board board, int moves, Move parent){
         this.board = board;
         this.moves = moves;
         this.parent = parent;

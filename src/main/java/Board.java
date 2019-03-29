@@ -4,10 +4,10 @@ import java.util.Stack;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Board {
-    public int size;
-    public int[] tiles;
-    public int location;
-    public int hamming,manhattan=-1;
+    private int size;
+    private int[] tiles;
+    private int location;
+    private int hamming,manhattan=-1;
 
     public Board(int[][] blocks){
         try{
@@ -55,7 +55,7 @@ public class Board {
     }
 
     // TODO: 21-Mar-19 check manhattan distance
-    public int getManhattan(){
+    int getManhattan(){
         if(manhattan != -1) return manhattan;
 
         manhattan = 0;
@@ -67,7 +67,7 @@ public class Board {
         return manhattan;
     }
 
-    public boolean isGoal(){
+    boolean isGoal(){
         if(tiles[tiles.length-1] != 0) return false; //if 0 is not in the corner
 
         for(int i=0; i<tiles.length-1; i++)
@@ -76,7 +76,7 @@ public class Board {
         return true;
     }
 
-    public boolean isSolvable(){
+    boolean isSolvable(){
         AtomicInteger inversions = new AtomicInteger();
         for(int i=0; i<tiles.length; i++){
             if (tiles[i] == 0) continue; //if tile is not 0
@@ -102,7 +102,7 @@ public class Board {
         return true;//else return true
     }
 
-    public Iterable<Board> neighbors(){
+    Iterable<Board> neighbors(){
         Stack<Board> neighbors = new Stack<>();
 
         if (location / size != 0) // has up neighbor?
@@ -117,7 +117,7 @@ public class Board {
         return neighbors;
     }
 
-    protected void pushNeighborToStack(Stack<Board> neighbors, int displace) {
+    private void pushNeighborToStack(Stack<Board> neighbors, int displace) {
         swap(tiles, location, location + displace); // Swap neighbor tile and blank tile
         neighbors.push(new Board(tiles, size, location + displace)); // Push neighbor board to stack
         swap(tiles, location, location + displace); // Switch tiles back to its original state
@@ -131,7 +131,7 @@ public class Board {
 
     public String toString(){
         StringBuilder s = new StringBuilder();
-        s.append(size + "\n");
+        s.append(size).append("\n");
         for (int i = 0; i < tiles.length; i++) {
             s.append(String.format("%2d ", tiles[i]));
             if ((i + 1) % size == 0)

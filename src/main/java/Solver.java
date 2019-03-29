@@ -28,21 +28,21 @@ public class Solver {
         }
     }
 
-    public int moves(){
-        return moves;
-    }
-
-    public Iterable<Board> solution(){
-        return solution;
-    }
-
-    public static Board getBoard(In in){
+    private static Board getBoard(In in){
         int size = in.readInt();
         int[][] blocks = new int[size][size];
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
                 blocks[i][j] = in.readInt();
         return new Board(blocks);
+    }
+
+    private int moves(){
+        return moves;
+    }
+
+    private Iterable<Board> solution(){
+        return solution;
     }
 
     public static void main(String[] args) {
