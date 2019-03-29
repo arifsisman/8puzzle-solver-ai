@@ -1,4 +1,4 @@
-package CSE362AI;
+package main.java;
 
 class Move implements Comparable<Move>{
     Board board;

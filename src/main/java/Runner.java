@@ -1,16 +1,10 @@
-package CSE362AI;
+package main.java;
 
 import java.io.File;
 
 public class Runner extends Solver {
     public Runner(Board initial) {
         super(initial);
-    }
-
-    public static void run(String... board) {
-        for (String i : board) {
-            Solver.main(board);
-        }
     }
 
     public static void main(String[] args) {
@@ -21,7 +15,7 @@ public class Runner extends Solver {
             if (file.isFile()) {
                 String name = file.getName();
                 System.out.println(name);
-                run("boards/".concat(name));
+                Solver.main(new String[]{"boards/".concat(name)});
             }
         }
     }

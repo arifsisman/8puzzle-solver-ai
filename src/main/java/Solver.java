@@ -1,9 +1,8 @@
-package CSE362AI;
+package main.java;
 
 import edu.princeton.cs.algs4.*;
 
 public class Solver {
-
     private Stack<Board> solution;
     private int moves;
 
@@ -48,9 +47,7 @@ public class Solver {
 
     public static void main(String[] args) {
         //args used for multiple run with Runner
-        //In in = new In(args[0]);
-        In in = new In("boards/puzzle06.txt");
-        Board puzzle = getBoard(in);
+        Board puzzle = getBoard(new In(args[0]));
 
         // check if puzzle is solvable; if so, solve it and output solution
         if (puzzle.isSolvable()) {
