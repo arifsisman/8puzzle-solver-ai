@@ -1,6 +1,6 @@
 package main.java;
 
-import java.io.File;
+import java.io.File; //java.io package needed for acquiring boards
 
 public class Runner extends Solver {
     public Runner(Board initial) {

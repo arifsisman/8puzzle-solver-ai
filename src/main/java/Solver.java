@@ -46,8 +46,12 @@ public class Solver {
     }
 
     public static void main(String[] args) {
+        Board puzzle;
         //args used for multiple run with Runner
-        Board puzzle = getBoard(new In(args[0]));
+        if(args.length == 0)
+            puzzle = getBoard(new In("boards/puzzle20.txt")); //if Solver.main run
+        else
+            puzzle = getBoard(new In(args[0])); //else Runner.main run
 
         // check if puzzle is solvable
         // if solvable, solve it and output solution
